@@ -1,3 +1,3 @@
-const api = require('../api/api');
+const api = require('./api');
 
 module.exports = ({ query }) => api.search(query);
