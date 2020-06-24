@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Spotify</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+<!--    <link rel="stylesheet" href="/css/main.css" type="text/css" />-->
+    <!--Defer script-->
+
+    <style type="text/css">
+        /* General */
+        body, html {
+            padding: 0;
+            margin: 0;
+            font-size: 100%;
+            height: 100%;
+            min-height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-flow: column nowrap;
+        }
+
+        .header {
+            height: 3.75rem;
+            background: burlywood;
+            flex: 0 0 auto;
+            padding: .5rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .container {
+            background: chocolate;
+            flex: 1 1 auto;
+        }
+
+        .footer {
+            flex: 0 0 auto;
+            height: 3.75rem;
+            background: aquamarine;
+        }
+
+        /* header */
+        .logo {
+            height: 100%;
+        }
+
+        .search {
+            width: 50%;
+            display: flex;
+            padding: .5rem;
+        }
+
+        .search button {
+            -webkit-appearance: none;
+            background: white;
+            border: none;
+            border-radius: 0 0.25rem 0.25rem 0;
+        }
+
+        .search-field {
+            border-radius: 0.25rem 0 0 0.25rem;
+            border: none;
+            font-size: 1rem;
+            padding: 0.25rem;
+            margin: 0;
+            flex: 1 1 auto;
+        }
+    </style>
+
+<!--    <script src="/js/bundle.js" defer></script>-->
+</head>
+<body>
+    <header class="header">
+        <img src="/img/logo.svg" class="logo" />
+
+        <form class="search" action="/search-result" method="get">
+            <input class="search-field"
+                   placeholder="Pesquisar"
+                   name="query"
+                   required
+            />
+            <button type="submit">Pesquisar</button>
+        </form>
+    </header>
+    <main class="container">
+
+    </main>
+    <footer class="footer"></footer>
+</body>
+</html>
