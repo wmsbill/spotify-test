@@ -1,6 +1,6 @@
 const queryString = require('querystring');
 const fetch = require('isomorphic-fetch');
-const searchResultHelper = require('../data/searchResponse.js');
+const searchResultHelper = require('./response');
 
 const BASE_API = 'https://api.spotify.com/v1';
 
@@ -17,7 +17,7 @@ module.exports =  {
         return fetch(url , {
             method: 'GET',
             headers: {
-                Authorization: 'Bearer BQCEOr7dN7GZsgHBRJRBeljhv6OZe1kypQKQH84BF8p2wXV014ryI-ZUbDBICiTA8foon5WswW7vDKxmhZMKUmV0fQ96HdWH9nUEKZQ7c4wmSA2DhGmOr3cweDI15Y7c4bt5yp4O984dBJSUQd1C4GFdhOZWAG2Yq4o',
+                Authorization: 'Bearer BQB3T79gpHNOT4kJhag3i4p21lN9OId6Tcrgj7oz34qNAz8Xx2Am4ErVHVq5FMiSnl9eXvtkSCzOcYIDaX8T72vAgm4aibBmYQQO4GdIwxOyZRSxKrNpXQ_9zXA8iEfy8fv4dtvO4QWM7Uy2NAAQvKOxIDLpV0SW3yY',
             }
         })
             .then(response => response.json())

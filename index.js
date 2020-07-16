@@ -2,29 +2,30 @@ const express = require('express');
 const path = require('path');
 const handlebars = require('express-handlebars');
 
-const handlers = require('./src/js/handlers/search');
+const handlers = require('./src/js/search/handler');
 
 const app = express();
 const PORT = 3000;
 const viewEngine = '.hbs';
 
 app.engine(viewEngine, handlebars({
-    layoutsDir: __dirname + '/src/views/layouts/',
+    layoutsDir: __dirname + '/src/pages/',
+    defaultLayout: 'index',
     extname: '.hbs'
 }));
 
 app.set('view engine', viewEngine);
-app.set('views', __dirname + '/src/views/');
+app.set('views', __dirname + '/src/js/');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
-    res.sendFile(`${__dirname}/src/index.html`);
+    res.sendFile(`${__dirname}/src/pages/index.html`);
 });
 
-app.get('/search-result', (req, res) => {
+app.get('/search', (req, res) => {
     handlers(req.query).then(result => {
-        res.render('search-result', result);
+        res.render('search/view', result);
     });
 });
 
