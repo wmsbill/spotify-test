@@ -4,6 +4,10 @@ const handlebars = require('express-handlebars');
 
 const handlers = require('./src/features/route-handlers');
 
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+}
+
 const app = express();
 const PORT = 3000;
 const viewEngine = '.hbs';
@@ -11,6 +15,7 @@ const viewEngine = '.hbs';
 app.engine(viewEngine, handlebars({
     layoutsDir: __dirname + '/src/pages/',
     defaultLayout: 'index',
+    helpers: require('./src/debug'),
     extname: '.hbs'
 }));
 

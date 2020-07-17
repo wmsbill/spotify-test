@@ -13,7 +13,7 @@ export default {
     plugins: [
         postcss({
             sourceMap: true,
-            extract : 'styles/main.css',
+            extract : 'css/main.css',
             extensions: ['.css']
         })
     ]

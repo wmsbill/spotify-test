@@ -1,3 +1,48 @@
-<pre>
-    {{JSON.stringify()}}
-</pre>
+{{#if this.artist }}
+    <section>
+        <picture>
+            <img src="{{artist.images.0.url}}" alt="{{artist.name}} image" />
+        </picture>
+        <div>
+            <h1>{{this.artist.name}}</h1>
+            {{#if artist.genres.length }}
+                <ul>
+                    {{#each artist.genres}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+            {{/if}}
+            <p>{{artist.followers.total}} seguidores</p>
+        </div>
+    </section>
+{{/if}}
+
+{{#if topTracks.tracks.length }}
+    <div class="top-tracks">
+        <h2>Melhores Músicas</h2>
+        <ol>
+            {{#each topTracks.tracks}}
+                <li>
+                    <a href="{{this.external_urls.spotify}}" target="_blank" rel="noreferrer noopener nofollow">
+                        {{this.name}}
+                    </a>
+                </li>
+            {{/each}}
+        </ol>
+    </div>
+{{/if}}
+
+
+{{#if relatedArtist.artists.length }}
+    <aside>
+        <ul>
+            {{#each relatedArtist.artists}}
+                <li>
+                    <a href="/artist/{{this.id}}">
+                        {{this.name}}
+                    </a>
+                </li>
+            {{/each}}
+        </ul>
+    </aside>
+{{/if}}
