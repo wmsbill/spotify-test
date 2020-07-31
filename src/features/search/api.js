@@ -17,7 +17,7 @@ module.exports =  {
         return fetch(url , {
             method: 'GET',
             headers: {
-                Authorization: 'Bearer BQB3T79gpHNOT4kJhag3i4p21lN9OId6Tcrgj7oz34qNAz8Xx2Am4ErVHVq5FMiSnl9eXvtkSCzOcYIDaX8T72vAgm4aibBmYQQO4GdIwxOyZRSxKrNpXQ_9zXA8iEfy8fv4dtvO4QWM7Uy2NAAQvKOxIDLpV0SW3yY',
+                Authorization: `Bearer ${process.env.token}`,
             }
         })
             .then(response => response.json())
