@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/search', (req, res) => {
-    handlers.searchHandler(req.query).then(result => {
+    handlers.searchHandler(req).then(result => {
         res.render('search/view', result);
     });
 });
