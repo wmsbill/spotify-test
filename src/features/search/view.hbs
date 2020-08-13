@@ -1,5 +1,5 @@
 {{#if artists.length }}
-    <ul>
+    <ol>
         {{#each artists}}
             <li>
                 <a href="/artist/{{this.id}}">
@@ -7,15 +7,24 @@
                 </a>
             </li>
         {{/each}}
-    </ul>
+    </ol>
 {{/if}}
 
 {{#if tracks.length }}
-    <ul>
+    <ol>
         {{#each tracks}}
             <li>
                 {{this.name}}
             </li>
         {{/each}}
-    </ul>
+    </ol>
+{{/if}}
+
+{{#if nextPage.hasNextPage}}
+    <form method="get" action="/search">
+        <input type="hidden" name="query" value="{{nextPage.query}}" />
+        <input type="hidden" name="offset" value="{{nextPage.offset}}" />
+        <input type="hidden" name="limit" value="{{nextPage.limit}}" />
+        <button>Carregar mais</button>
+    </form>
 {{/if}}
