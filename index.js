@@ -28,17 +28,8 @@ app.get('/', (req, res) => {
     res.sendFile(`${__dirname}/src/pages/index.html`);
 });
 
-app.get('/search', (req, res) => {
-    handlers.searchHandler(req).then(result => {
-        res.render('search/view', result);
-    });
-});
-
-app.get('/artist/:id', (req, res) => {
-    handlers.artistHandler(req.params).then(result => {
-        res.render('artist/view', result);
-    });
-});
+app.get('/search', handlers.searchHandler);
+app.get('/artist/:id', handlers.artistHandler);
 
 app.listen(PORT, error => {
     if (error) {
