@@ -1,11 +1,11 @@
 const searchHandler = require('./search/handler');
 const artistHandler = require('./artist/handler');
 
-const pulse = (req, res) => function* () {
-    yield {req, res};
+function* input (req, res) {
+    yield {req, res, args: {}, output: {}};
 }
 
 module.exports = {
-    searchHandler,
-    artistHandler,
+    searchHandler: (req, res) => searchHandler(input(req, res)),
+    artistHandler: (req, res) => artistHandler(input(req, res)),
 }

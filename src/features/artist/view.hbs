@@ -16,11 +16,11 @@
         </div>
     </section>
 {{/if}}
-{{#if topTracks.tracks.length }}
+{{#if topTracks.length }}
     <div class="top-tracks">
         <h2>Melhores Músicas</h2>
         <ol>
-            {{#each topTracks.tracks}}
+            {{#each topTracks}}
                 <li>
                     <a href="{{this.external_urls.spotify}}" target="_blank" rel="noreferrer noopener nofollow">
                         {{this.name}}
@@ -31,10 +31,10 @@
     </div>
 {{/if}}
 
-{{#if relatedArtist.artists.length }}
+{{#if relatedArtist.length }}
     <aside>
         <ul>
-            {{#each relatedArtist.artists}}
+            {{#each relatedArtist}}
                 <li>
                     <a href="/artist/{{this.id}}">
                         {{this.name}}
